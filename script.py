@@ -10,7 +10,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver import ActionChains
 import os
 
-#HSG SPORT AUTOMATION TOOL v3
+#HSG SPORT AUTOMATION TOOL v3 
 #property of GONZALO MUKHERJEE
 
 
@@ -27,12 +27,12 @@ chrome_options.add_argument('--profile-directory=Default')
 chrome_options.add_argument("user-data-dir="+google_path)
 chrome_options.add_argument(f"user-agent={user_agent}")
 
-#THIS IS WHEN THE BOT WILL RUN AND START WORKING. RUN THE PROGRAM ANYTIME BEFORE
+#the program will start at the time below. Run the program before this time.
 
 while True:
     while True:
         date_obj = datetime.now()
-        if date_obj.hour == 3 and date_obj.minute == 00:#INSERT HOUR AND MINUTES. INSERT MINUTE BEFORE OPENING
+        if date_obj.hour == 3 and date_obj.minute == 00:#hours and minutes of start time
             break
         else:
             time.sleep(1)
@@ -51,7 +51,7 @@ while True:
 
     for row in rows:
         tim = row.find_element_by_xpath("./td[4]").text
-        if tim == "14:15-15:15": #THIS IS THE TIMESLOT YOU WISH TO ENROLL IN
+        if tim == "14:15-15:15": #timeslot you wish to participate in
             print(row.find_element_by_xpath("./td[3]").text)
             # print(row.find_element_by_xpath("./td[1]").text)
             try:
@@ -71,16 +71,17 @@ while True:
                     EC.presence_of_element_located((By.XPATH, '//input[@value="M"]'))).click()
 
                 WebDriverWait(driver, 15).until(
-                    EC.presence_of_element_located((By.XPATH, "//input[@id='BS_F1100']"))).send_keys("Gonzalo") #INSERT YOUR FIRST NAME
+                    EC.presence_of_element_located((By.XPATH, "//input[@id='BS_F1100']"))).send_keys("Gonzalo") #first name
+          
                 WebDriverWait(driver, 15).until(
-                    EC.presence_of_element_located((By.XPATH, "//input[@id='BS_F1200']"))).send_keys("Mukherjee")#INSERT YOUR LAST NAME
+                    EC.presence_of_element_located((By.XPATH, "//input[@id='BS_F1200']"))).send_keys("Mukherjee")#inser last name
                 drop_down = Select(WebDriverWait(driver, 15).until(
                     EC.presence_of_element_located((By.XPATH, "//select[@name='statusorig']"))))
                 time.sleep(1)
                 drop_down.select_by_value("S-HSG")
 
                 WebDriverWait(driver, 15).until(
-                    EC.presence_of_element_located((By.XPATH, "//input[@id='BS_F2000']"))).send_keys("example@unisg.ch")#INSERT EMAIL
+                    EC.presence_of_element_located((By.XPATH, "//input[@id='BS_F2000']"))).send_keys("example@unisg.ch")#insert unisg email here
                 WebDriverWait(driver, 15).until(
                     EC.presence_of_element_located((By.XPATH, "//input[@value='1']"))).click()
                 print("DO it now")
