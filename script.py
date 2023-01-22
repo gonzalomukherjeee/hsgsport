@@ -1,3 +1,6 @@
+#HSG SPORT AUTOMATION TOOL v3 
+#property of GONZALO MUKHERJEE
+
 import json
 import time
 from selenium import webdriver
@@ -9,10 +12,6 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver import ActionChains
 import os
-
-#HSG SPORT AUTOMATION TOOL v3 
-#property of GONZALO MUKHERJEE
-
 
 with open("config.json", "r", encoding='utf-8') as read_file:
     json_data = json.loads(read_file.read())
